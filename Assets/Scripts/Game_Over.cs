@@ -32,5 +32,10 @@ public class Game_Over : MonoBehaviour
         {
             GetComponent<Text>().enabled = true;
         }
+        if (Input.GetButton("Quit"))
+        {
+            Debug.Log("quit");
+        Application.Quit();
+        }
     }
 }

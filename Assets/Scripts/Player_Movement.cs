@@ -23,7 +23,7 @@ public class Player_Movement : MonoBehaviour
             Transform trans = other.GetComponent<Transform>();
             GetComponent<Rigidbody2D>().position = new
                     Vector2(
-                    Mathf.Clamp(GetComponent<Rigidbody2D>().position.x, trans.position.x - GetComponent<SpriteRenderer>().sprite.bounds.extents.x, trans.position.x + GetComponent<SpriteRenderer>().sprite.bounds.extents.x),
+                    Mathf.Clamp(GetComponent<Rigidbody2D>().position.x, trans.position.x - trans.lossyScale.x / 2 + GetComponent<SpriteRenderer>().sprite.bounds.extents.x*2, trans.position.x + trans.lossyScale.x / 2 - GetComponent<SpriteRenderer>().sprite.bounds.extents.x*2),
                     Mathf.Clamp(GetComponent<Rigidbody2D>().position.y, trans.position.y - trans.lossyScale.y / 2, trans.position.y + trans.lossyScale.y / 2));
             //   Debug.Log(trans.position.x + " : " + GetComponent<Rigidbody2D>().position.x);
         }
